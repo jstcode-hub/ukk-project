@@ -31,9 +31,9 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <nav className='fixed top-0 bg-white shadow-lg w-full'>
+    <nav className='fixed top-0 bg-white shadow-lg w-full' style={{ zIndex: '1000' }}>
       <div className='lg:container lg:mx-auto flex justify-between items-center'>
-        <Link className='nav-brand text-2xl font-extrabold' style={{ fontFamily: 'Josefin Sans' }} to="/">
+        <Link className='mx-8 nav-brand text-2xl font-extrabold' style={{ fontFamily: 'Josefin Sans' }} to="/">
           Logo
         </Link>
 
@@ -44,7 +44,7 @@ const Navbar = () => {
               <button className='nav-item font-medium mx-4 px-8 py-4 hover:bg-sky-500 hover:text-white hover:font-bold' onClick={logout}>Logout</button>
             </div>
           ) : (
-            <Link className='nav-item font-medium mx-4 px-8 py-4 hover:bg-sky-500 hover:text-white hover:font-bold' to="/auth">Sign In</Link>
+            <Link className='nav-item font-medium mx-4 p-4 hover:bg-sky-500 hover:text-white hover:font-bold' to="/auth">Sign In</Link>
           )}
         </div>
       </div>
