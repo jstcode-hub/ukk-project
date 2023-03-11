@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import usersRoutes from './routes/users.js';
+import complaintRoutes from './routes/complaints.js';
 
 // variable
 const CONNECTION_URL = 'mongodb+srv://jstcode_hub:jstcode_hub@jstbase.m7p5j.mongodb.net/ukk-mern?retryWrites=true&w=majority';
@@ -29,3 +30,4 @@ app.get('/test', (req, res) => {
 });
 
 app.use('/users', usersRoutes);
+app.use('/complaints', complaintRoutes);

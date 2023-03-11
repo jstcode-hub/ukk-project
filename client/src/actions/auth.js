@@ -1,5 +1,6 @@
 import { AUTH } from '../constants/actionTypes';
 import * as api from '../api/index.js';
+import { redirect } from 'react-router';
 
 export const signin = (form, router) => async (dispatch) => {
   try {
@@ -7,6 +8,7 @@ export const signin = (form, router) => async (dispatch) => {
 
     dispatch({ type: AUTH, data });
 
+    return redirect('/');
   } catch (error) {
     console.log(error);
   }
@@ -18,6 +20,7 @@ export const signup = (form, router) => async (dispatch) => {
 
     dispatch({ type: AUTH, data });
 
+    return redirect('/auth');
   } catch (error) {
     console.log(error);
   }
