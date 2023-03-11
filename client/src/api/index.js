@@ -11,19 +11,12 @@ API.interceptors.request.use((req) => {
 });
 
 // postingan
-export const fetchPost = (id) => API.get(`/posts/${id}`);
-export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
-export const fetchPostsByCreator = (name) => API.get(`/posts/creator?name=${name}`);
-export const fetchPostsBySearch = (searchQuery) => API.get(`/posts/search?searchQuery=${searchQuery.search || 'none'}&tags=${searchQuery.tags}`);
-export const createPost = (newPost) => API.post('/posts', newPost);
-export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
-export const comment = (value, id) => API.post(`/posts/${id}/commentPost`, { value });
-export const updatePost = (id, updatedPost) => API.patch(`/posts/${id}`, updatedPost);
-export const deletePost = (id) => API.delete(`/posts/${id}`);
+export const fetchComplaint = (id) => API.get(`/complaints/${id}`);
+export const fetchcomplaints = (page) => API.get(`/complaints?page=${page}`);
+export const createComplaint = (newComplaint) => API.post('/complaints', newComplaint);
+export const updateComplaint = (id, updatedComplaint) => API.patch(`/complaints/${id}`, updatedComplaint);
+export const deleteComplaint = (id) => API.delete(`/complaints/${id}`);
 
 // pengguna
 export const signIn = (form) => API.post('/users/signin', form);
-export const signUp = (form) => {
-  console.log(form);
-  return API.post('/users/signup', form);
-};
+export const signUp = (form) => API.post('/users/signup', form);
