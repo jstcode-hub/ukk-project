@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { signin, signup } from "../actions/auth.js";
 import { getError } from "../utils/error.js";
 
 // const initialState = { nik: "", firstName: "", lastName: "", telp: "", email: "", password: "", confirmPassword: "" };
-// const navigate = useNavigate();
 
 const Auth = () => {
+  const navigate = useNavigate();
   // const [form, setForm] = useState(initialState);
   const [isSignup, setIsSignup] = useState(false);
   const dispatch = useDispatch();
@@ -31,8 +31,10 @@ const Auth = () => {
     try {
       if (isSignup) {
         dispatch(signup(form));
+        navigate('/');
       } else {
         dispatch(signin(form));
+        navigate('/');
       }
     } catch (err) {
       toast.error(getError(err));
