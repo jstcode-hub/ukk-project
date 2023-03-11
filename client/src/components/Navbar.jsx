@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const token = user?.token;
+    const token = user.token;
 
     if (token) {
       const decodedToken = decode(token);
@@ -31,21 +31,24 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <div className="flex text-center justify-between">
-      <Link to="/">
-        <h2>Logo</h2>
-      </Link>
-      <div>
-        {user?.result ? (
-          <div>
-            <h3>{user?.result.name}</h3>
-            <button onClick={logout}>Logout</button>
-          </div>
-        ) : (
-          <Link to="/auth">Sign In</Link>
-        )}
+    <nav className='fixed top-0 bg-white shadow-lg w-full'>
+      <div className='lg:container lg:mx-auto flex justify-between items-center'>
+        <Link className='nav-brand text-2xl font-extrabold' style={{ fontFamily: 'Josefin Sans' }} to="/">
+          Logo
+        </Link>
+
+        <div className='navbar-nav flex justify-around'>
+          {user.result ? (
+            <div>
+              {/* <h3>{user?.result.name}</h3> */}
+              <button className='nav-item font-medium mx-4 px-8 py-4 hover:bg-sky-500 hover:text-white hover:font-bold' onClick={logout}>Logout</button>
+            </div>
+          ) : (
+            <Link className='nav-item font-medium mx-4 px-8 py-4 hover:bg-sky-500 hover:text-white hover:font-bold' to="/auth">Sign In</Link>
+          )}
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
