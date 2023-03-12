@@ -4,9 +4,10 @@ import FileBase from 'react-file-base64';
 
 import { createComplaint, updateComplaint } from '../actions/complaints';
 
-const FormComplaint = ({ currentId, setCurrentId }) => {
+const FormComplaint = () => {
+  const [currentId, setCurrentId] = useState(0);
   const [postData, setPostData] = useState({ laporan: '', tanggapan: '', selectedFile: '' });
-  const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null));
+  const post = useSelector((state) => (currentId ? state.complaints.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem('profile'));
 
